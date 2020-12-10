@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <base href="/">
+        <link rel="icon" href="data:,">
+        <title>AIV app</title>
+        <script src=".libs/angular/angular.js"></script>
+        <script src=".libs/angular/angular-route.js"></script>
+        <script src=".libs/vue/vue.js"></script>
+        <script src=".libs/vue/vue-router.js"></script>
+        <script src=".libs/vuex/vuex.js"></script>
+
+        <script src="app/app-vuex.js"></script>
+        <script src="app/app-vue.js"></script>
+        <script src="app/app-angular.js"></script>
+    </head>
+    <body>
+        <div id="vue-root">
+        </div>
+    </body>
+</html>
+
+<script>
+const vueApp = new Vue({
+    template: `
+    <div>
+        <vue-tabs />
+        <router-view :key="$route.fullPath"/>
+    </div>`,
+    router: vueRouter,
+    store: vuexStore
+}).$mount("#vue-root");
+</script>
